@@ -3,23 +3,8 @@ from account import Account
 class Customer:
     def __init__(self, name):
         self.name = name
-        self.accounts = []
-        self.accounts.append(Account("Savings"))
-        self.accounts.append(Account("Loan"))
-        # self.savings = Account("Savings")
-        # self.loan = Account("Loan")
-
-    def read_name(self):
-        self.name = input("Enter Customer Name: ")
-    
-    def match(self, name):
-        return self.name == name
-    
-    def account(self, type):
-        for a in self.accounts:
-            if a.hasType(type):
-                return a
-        return None
+        self.savings = Account("Savings")
+        self.loan = Account("Loan")
 
     def is_sufficient(self, amount):
         return self.savings.has_balance(amount)
