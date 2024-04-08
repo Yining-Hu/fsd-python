@@ -29,7 +29,7 @@ class Bank:
         return input().strip()
     
     def customer_login(self):
-        c = self.check_customer(self.read_name())
+        c = self.customer(self.read_name())
         if c:
             c.use()
         else:
