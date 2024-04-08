@@ -3,3 +3,4 @@ VENV.md
 __pycache__/
 .vscode/
 .vscode
+.data
