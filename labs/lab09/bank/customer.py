@@ -54,37 +54,40 @@ class Customer:
             print("No such account")
 
     def read_amount(self, action):
-        print(f"Amount to {action}: $", end="")
+        print(f'Amount to {action}: $', end="")
         return float(input())
 
     def show(self):
-        print(f"{self.name} bank statement: {NOW.strftime(DTF)}")
+        print(f'{self.name} bank statement: {NOW.strftime(DTF)}')
         for account in self.accounts:
             print(account)
 
     def __str__(self):
-        return f"{self.name}\t--> {' | '.join(map(str, self.accounts))}"
+        return f'{self.name}\t--> {' | '.join(map(str, self.accounts))}'
 
     def read_choice(self):
         print("Customer menu (d/w/t/s/x): ", end="")
         return input().strip().lower()
 
     def use(self):
-        print(f"{self.name} banking menu: {NOW.strftime(DTF)}")
-        while True:
-            c = self.read_choice()
-            if c == 'x':
-                break
-            elif c == 'd':
-                self.deposit()
-            elif c == 'w':
-                self.withdraw()
-            elif c == 't':
-                self.transfer()
-            elif c == 's':
-                self.show()
-            else:
-                self.help()
+        print(f'{self.name} banking menu: {NOW.strftime(DTF)}')
+        choice = self.read_choice()
+        
+        while choice!='x':
+            match choice:
+                case 'd':
+                    self.deposit()
+                case 'w':
+                    self.withdraw()
+                case 't':
+                    self.transfer()
+                case 's':
+                    self.show()
+                case _:
+                    self.help()
+
+            choice = self.read_choice()
+
         print("Back to Bank menu")
 
     def help(self):

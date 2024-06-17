@@ -1,10 +1,10 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
 class Polygon:
     def __init__(self, type):
         self.type = type
        
-    @abstractmethod 
+    @abstractmethod
     def area(self):
         pass 
     
@@ -48,9 +48,6 @@ class Shapes:
     def show(self):
         for p in self.shapes:
             print(p)
-        
-def main():
-    Shapes().show()
     
 if __name__ == '__main__':
-    main()
+    Shapes().show()

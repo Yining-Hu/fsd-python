@@ -20,7 +20,7 @@ class Student:
             return "Z"
 
     def __str__(self):
-        return f"{self.name} -> {self.grade}"
+        return f'{self.name} -> {self.grade}'
     
 class Faculty:
     def __init__(self):
@@ -28,7 +28,7 @@ class Faculty:
 
     def enroll_students(self):
         for i in range(100, 110):
-            name = f"Student_{i}"
+            name = f'Student_{i}'
             mark = random.randint(1, 100)
             student = Student(name, mark)
             self.students[name] = student
@@ -46,10 +46,21 @@ class Faculty:
             for row in reader:
                 print(row)
 
+    def read_choice(self):
+        return input("Menu: (e) enroll, (s) save, (v) show, (x) exit: ").strip().lower()
+    
+    def help(self):
+        print("Menu options (e/s/v/x)")
+        print("(e) enrol - to add 10 students")
+        print("(s) save - to save the student list to a csv file")
+        print("(v) show - to read and show the content of the csv file")
+        print("x = exit")
+
     def menu(self):
-        while True:
-            choice = input("Menu: (p) enroll, (s) save, (v) show, (x) exit: ").strip().lower()
-            if choice == 'p':
+        choice = ''
+        while choice != 'x':
+            choice = self.read_choice()
+            if choice == 'e':
                 self.enroll_students()
             elif choice == 's':
                 self.save()
@@ -57,19 +68,10 @@ class Faculty:
             elif choice == 'v':
                 print("Contents of grades.csv:")
                 self.show()
-            elif choice == 'x':
-                break
             else:
                 self.help()
-    
-    def help(self):
-        print("Menu options (p/s/v/x)")
-        print("(p) enrol - to add 10 students")
-        print("(s) save - to save the student list to a csv file")
-        print("(v) show - to read and show the content of the csv file")
-        print("x = exit")
+        print("Goodbye!")
 
-# Example usage:
-faculty = Faculty()
-faculty.menu()
+if __name__ == "__main__":
+    Faculty().menu()
     

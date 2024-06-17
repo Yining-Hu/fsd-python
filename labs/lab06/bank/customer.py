@@ -24,4 +24,4 @@ class Customer:
         print(self.loan)
 
     def __str__(self):
-        return f"{self.name} accounts:"
+        return f'{self.name} accounts:'

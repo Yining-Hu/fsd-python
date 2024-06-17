@@ -13,5 +13,3 @@ while s != "*":
         print(f'{c} --> {frequency:03}')
     print(f"Total vowels = {total}")
     s = input("String: ")
-    
-# Georges034302

@@ -44,5 +44,6 @@ def main():
     people.update(people.first,'Alex')
     people.update(people.second,'Tom Jones')
     people.show()
-    
-main()
+
+if __name__ == "__main__":
+    main()

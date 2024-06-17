@@ -10,7 +10,7 @@ class Animal(ABC):
         pass
     
     def show(self):
-        print(f"{self.type} is at position {self.position}")
+        print(f'{self.type} is at position {self.position}')
 
 class Cat(Animal):
     def __init__(self):

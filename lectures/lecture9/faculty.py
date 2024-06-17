@@ -7,7 +7,7 @@ def filepath():
     scriptpath = os.path.abspath(sys.argv[0])
     scriptdir = os.path.dirname(scriptpath)
     return scriptdir+"/"
-    # for Windows systme this line should be return scriptdir+"\\"
+    # for Windows system this line should be return scriptdir+"\\"
 
 def read():
     path = filepath()

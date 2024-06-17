@@ -1,11 +1,9 @@
 def print_space(n, l):
     space = n - l
-    for i in range(space):
-        print(" ", end="")
+    print(" " * space, end="")
 
 def print_stars(n):
-    for i in range(n):
-        print("* ", end="")
+    print("* " * n, end="")
     print()
 
 def generate_nums(n):

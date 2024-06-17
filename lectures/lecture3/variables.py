@@ -1,13 +1,3 @@
-# x = 2
-# print(x)
-# print(type(x))
-# x = True
-# print(x)
-# print(type(x))
-# x = "Hello"
-# print(x)
-# print(type(x))
-
 x = 2
 y = 3.5
 
@@ -26,6 +16,3 @@ print(not(x == y))
 b = (x >= y or not(x != y)) and (x is y or (x < y))
 
 print(b)
-
-# https://github.com/Georges034302
-# GitHub ID: Georges034302

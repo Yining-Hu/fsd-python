@@ -1,5 +1,5 @@
 from customer import Customer
-from utils import DTF,NOW,CUSTOMER_FILE,initialize,read_from_file,write_to_file
+from utils import DTF,NOW,initialize,read_from_file,write_to_file
 
 class Bank:
     def __init__(self):
@@ -11,7 +11,7 @@ class Bank:
         self.menu()
     
     def read_choice(self):
-        print("Bank menu (L/A/X): ", end="")
+        print(f'Bank menu (L/A/X): {NOW.strftime(DTF)}', end="")
         return input().strip().upper()
     
     def check_customer(self, name):
@@ -73,18 +73,16 @@ class Bank:
             print(customer)
     
     def menu(self):
-        print("Bank menu: " + NOW.strftime(DTF))
-        while True:
+        choice = self.read_choice()
+        while choice!='X':
+            match choice:
+                case 'L':
+                    self.customer_login()
+                case 'A':
+                    self.admin_login(bank)
+                case _:
+                    self.help()
             choice = self.read_choice()
-            if choice == 'X':
-                break
-            elif choice == 'L':
-                self.customer_login()
-            elif choice == 'A':
-                self.admin_login(bank)
-            else:
-                self.help()
-        print("Done")
 
     def help(self):
         print("Menu options")
@@ -113,22 +111,21 @@ class Manager:
         return input().strip().lower()
     
     def use(self,bank):
-        print(f"{self.name} admin menu: {NOW.strftime(DTF)}")
-        c = ''
-        while True:
+        print(f'{self.name} admin menu: {NOW.strftime(DTF)}')
+        c = self.read_choice()
+        while c!='x':
+            match c:
+                case 'a':
+                    self.add(bank)
+                case 'r':
+                    self.remove(bank)
+                case 's':
+                    self.show(bank)
+                case 'v':
+                    self.view(bank)
+                case _:
+                    self.help()
             c = self.read_choice()
-            if c == 'x':
-                break
-            elif c == 'a':
-                self.add(bank)
-            elif c == 'r':
-                self.remove(bank)
-            elif c == 's':
-                self.show(bank)
-            elif c == 'v':
-                self.view(bank)
-            else:
-                self.help()
         print("Back to Bank menu")
 
     def help(self):

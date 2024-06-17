@@ -8,18 +8,18 @@ class Bank:
     def deposit(self):
         amount = self.readAmount("deposit")
         self.balance += amount
-        print("Amount %.2f deposited%n", amount)
+        print(f'Amount deposited ${amount:.2f}')
 
     def withdraw(self): 
         amount = self.readAmount("withdraw")
         if (self.balance >= amount):
             self.balance -= amount
-            print("Amount %.2f withdrawn%n", amount)
+            print(f'Amount withdrawn ${amount:.2f}')
         else:
             print("Insufficient funds!")
 
     def show(self):
-        print(f"Starting balance ${self.balance:.2f}")
+        print(f'Starting balance ${self.balance:.2f}')
 
     def read_choice(self):
         return input("Start Banking (d/w/s/x): ")[0]
@@ -44,8 +44,7 @@ class Bank:
                 case _:
                     self.help()
 
-            print("Continue Banking(d/w/s/x): ")
             choice = self.read_choice()
 
-bank = Bank()
-bank.main()
+if __name__ == "__main__":
+    Bank().main()

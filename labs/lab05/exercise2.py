@@ -15,8 +15,8 @@ def calculate_standard_deviation(array):
 def show_calculated_values(array):
     mean = calculate_mean(array)
     std_dev = calculate_standard_deviation(array)
-    print("Mean:", "{:.2f}".format(mean))
-    print("Standard Deviation:", "{:.2f}".format(std_dev))
+    print(f'Mean: {mean:.2f}')
+    print(f'Standard Deviation: {std_dev:.2f}')
 
 # Generate 20 random numbers
 random_numbers = generate_random_numbers(20)

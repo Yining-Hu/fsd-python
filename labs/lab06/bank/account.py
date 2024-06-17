@@ -4,7 +4,7 @@ class Account:
         self.balance = self.read_balance()
 
     def read_balance(self):
-        print("Initial " + self.type + " balance $", end='')
+        print(f'Initial {self.type} balance $', end='')
         return float(input())
 
     def has_balance(self, amount):
@@ -21,4 +21,4 @@ class Account:
         target.balance += amount
 
     def __str__(self):
-        return f"{self.type} balance: ${self.balance:.2f}"
+        return f'{self.type} balance: ${self.balance:.2f}'
